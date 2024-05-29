@@ -80,8 +80,11 @@
             padding: 10px 20px;
             cursor: pointer;
         }
-        .remarks {
+        .remarks, .email {
             margin-top: 10px;
+            display: block;
+            width: calc(100% - 20px);
+            padding: 10px;
         }
     </style>
 </head>
@@ -100,12 +103,14 @@
             <li class="product-item">
                 <h3>Google Account</h3>
                 <p>Price: 10元 each</p>
+                <input type="email" id="google-email" class="email" placeholder="Enter your email here" required>
                 <textarea class="remarks" id="google-remarks" placeholder="Add your remarks here"></textarea>
                 <button class="buy-button" onclick="buyNow('google')">Buy Now</button>
             </li>
             <li class="product-item">
                 <h3>Apple ID (Nigeria)</h3>
                 <p>Price: 50元 each</p>
+                <input type="email" id="apple-email" class="email" placeholder="Enter your email here" required>
                 <textarea class="remarks" id="apple-remarks" placeholder="Add your remarks here"></textarea>
                 <button class="buy-button" onclick="buyNow('apple')">Buy Now</button>
             </li>
@@ -118,13 +123,22 @@
 
     <script>
         function buyNow(product) {
+            let email = '';
             let remarks = '';
             if (product === 'google') {
+                email = document.getElementById('google-email').value;
                 remarks = document.getElementById('google-remarks').value;
             } else if (product === 'apple') {
+                email = document.getElementById('apple-email').value;
                 remarks = document.getElementById('apple-remarks').value;
             }
-            window.location.href = 'payment.html?product=' + product + '&remarks=' + encodeURIComponent(remarks);
+            
+            if (email === '') {
+                alert('Please enter your email before purchasing.');
+                return;
+            }
+
+            window.location.href = 'payment.html?product=' + product + '&email=' + encodeURIComponent(email) + '&remarks=' + encodeURIComponent(remarks);
         }
     </script>
 </body>
