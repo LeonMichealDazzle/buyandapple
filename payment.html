@@ -100,11 +100,7 @@
         window.onload = function() {
             let params = getQueryParams();
             let paymentInfoDiv = document.getElementById('payment-info');
-            if (params.product === 'google') {
-                paymentInfoDiv.innerHTML = `<p>Product: Google Account</p><p>Price: 10元</p><p>Remarks: ${params.remarks}</p>`;
-            } else if (params.product === 'apple') {
-                paymentInfoDiv.innerHTML = `<p>Product: Apple ID (Nigeria)</p><p>Price: 50元</p><p>Remarks: ${params.remarks}</p>`;
-            }
+            paymentInfoDiv.innerHTML = `<p>Product: ${params.product}</p><p>Email: ${params.email}</p><p>Remarks: ${params.remarks}</p>`;
         }
     </script>
 </body>
