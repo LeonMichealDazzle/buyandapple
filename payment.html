@@ -50,8 +50,9 @@
             color: #333333;
             margin-top: 10px;
         }
-        .payment-option {
-            margin: 20px 0;
+        .qr-code {
+            max-width: 150px;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -67,18 +68,7 @@
     <section class="container">
         <h2>Payment Details</h2>
         <div id="payment-info"></div>
-        <div class="payment-option">
-            <h3>微信支付</h3>
-            <p>账号: 18703625231</p>
-        </div>
-        <div class="payment-option">
-            <h3>支付宝</h3>
-            <p>账号: 18703625231</p>
-        </div>
-        <div class="payment-option">
-            <h3>USDT</h3>
-            <p>地址: 0x988aa7d1130e1d224438572248b21d1a89f0f93c</p>
-        </div>
+        <img id="qr-code" class="qr-code" src="payment-qr-code.jpg" alt="QR Code">
     </section>
 
     <footer>
@@ -100,7 +90,11 @@
         window.onload = function() {
             let params = getQueryParams();
             let paymentInfoDiv = document.getElementById('payment-info');
-            paymentInfoDiv.innerHTML = `<p>Product: ${params.product}</p><p>Email: ${params.email}</p><p>Remarks: ${params.remarks}</p>`;
+            if (params.product === 'google') {
+                paymentInfoDiv.innerHTML = `<p>Product: Google Account</p><p>Price: 10元</p><p>Remarks: ${params.remarks}</p>`;
+            } else if (params.product === 'apple') {
+                paymentInfoDiv.innerHTML = `<p>Product: Apple ID (Nigeria)</p><p>Price: 50元</p><p>Remarks: ${params.remarks}</p>`;
+            }
         }
     </script>
 </body>
