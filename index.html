@@ -4,89 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Shop</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-        }
-        header {
-            background: #35424a;
-            color: #ffffff;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #e8491d 3px solid;
-        }
-        header a {
-            color: #ffffff;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 16px;
-        }
-        header ul {
-            padding: 0;
-            list-style: none;
-        }
-        header li {
-            float: right;
-            display: inline;
-            padding: 0 20px 0 20px;
-        }
-        header #branding {
-            float: left;
-        }
-        header #branding h1 {
-            margin: 0;
-        }
-        section {
-            padding: 20px;
-            background: #ffffff;
-            color: #333333;
-            margin-top: 10px;
-        }
-        footer {
-            background: #35424a;
-            color: #ffffff;
-            text-align: center;
-            padding: 30px;
-            margin-top: 30px;
-        }
-        .product-list {
-            list-style-type: none;
-            padding: 0;
-        }
-        .product-item {
-            margin: 10px 0;
-            padding: 10px;
-            border: 1px solid #ddd;
-            background: #f9f9f9;
-        }
-        .product-item h3 {
-            margin: 0 0 10px;
-        }
-        .product-item p {
-            margin: 0;
-        }
-        .buy-button {
-            background-color: #e8491d;
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
-        .remarks, .email {
-            margin-top: 10px;
-            display: block;
-            width: calc(100% - 20px);
-            padding: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
@@ -99,47 +17,14 @@
 
     <section class="container">
         <h2>Products</h2>
-        <ul class="product-list">
-            <li class="product-item">
-                <h3>Google Account</h3>
-                <p>Price: 10元 each</p>
-                <input type="email" id="google-email" class="email" placeholder="Enter your email here" required>
-                <textarea class="remarks" id="google-remarks" placeholder="Add your remarks here"></textarea>
-                <button class="buy-button" onclick="buyNow('google')">Buy Now</button>
-            </li>
-            <li class="product-item">
-                <h3>Apple ID (Nigeria)</h3>
-                <p>Price: 50元 each</p>
-                <input type="email" id="apple-email" class="email" placeholder="Enter your email here" required>
-                <textarea class="remarks" id="apple-remarks" placeholder="Add your remarks here"></textarea>
-                <button class="buy-button" onclick="buyNow('apple')">Buy Now</button>
-            </li>
-        </ul>
+        <ul class="product-list" id="product-list"></ul>
     </section>
 
     <footer>
         <p>Online Shop &copy; 2024</p>
     </footer>
 
-    <script>
-        function buyNow(product) {
-            let email = '';
-            let remarks = '';
-            if (product === 'google') {
-                email = document.getElementById('google-email').value;
-                remarks = document.getElementById('google-remarks').value;
-            } else if (product === 'apple') {
-                email = document.getElementById('apple-email').value;
-                remarks = document.getElementById('apple-remarks').value;
-            }
-            
-            if (email === '') {
-                alert('Please enter your email before purchasing.');
-                return;
-            }
-
-            window.location.href = 'payment.html?product=' + product + '&email=' + encodeURIComponent(email) + '&remarks=' + encodeURIComponent(remarks);
-        }
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>
+
