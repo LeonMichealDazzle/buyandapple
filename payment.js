@@ -16,7 +16,7 @@ async function confirmPurchase() {
     const product = data.products.find(p => p.name === params.product);
 
     if (product && product.stock > 0) {
-        product.email.push(params.email);
+        product.emails.push(params.email);
         product.stock -= 1;
         await fetch('update_data.php', {
             method: 'POST',
