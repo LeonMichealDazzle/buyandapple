@@ -35,7 +35,7 @@ async function buyNow(productName, button) {
     const product = data.products.find(p => p.name === productName);
 
     if (product && product.stock > 0) {
-        product.email.push(email);
+        product.emails.push(email);
         product.stock -= 1;
         await fetch('update_data.php', {
             method: 'POST',
