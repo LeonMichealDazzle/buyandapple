@@ -11,7 +11,7 @@ async function loadRecords() {
             <p>Stock: ${product.stock}</p>
             <h4>Emails:</h4>
             <ul>
-                ${product.email.map(email => `<li>${email}</li>`).join('')}
+                ${product.emails.map(email => `<li>${email}</li>`).join('')}
             </ul>
         `;
         recordList.appendChild(productItem);
