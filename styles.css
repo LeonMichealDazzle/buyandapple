@@ -73,4 +73,24 @@ footer {
 }
 
 .product-item h3 {
-    margin:
+    margin: 0 0 10px;
+}
+
+.product-item p {
+    margin: 0;
+}
+
+.buy-button {
+    background-color: #e8491d;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.email, .remarks {
+    margin-top: 10px;
+    display: block;
+    width: calc(100% - 20px);
+    padding: 10px;
+}
